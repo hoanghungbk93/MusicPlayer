@@ -6,7 +6,7 @@ project(MusicPlayer)
 # Set C++ Standard
 set(CMAKE_CXX_STANDARD 17)
 
-# Add coverage flags for gcov
+# Add coverage flags
 set(CMAKE_CXX_FLAGS "--coverage -O0 -fprofile-arcs -ftest-coverage")
 set(CMAKE_EXE_LINKER_FLAGS "--coverage")
 

@@ -50,3 +50,10 @@ Copy code
 ...
 [==========] 5 tests from 3 test cases ran. (5 ms total)
 [  PASSED  ] 5 tests.
+
+#report
+pip install gcovr
+
+ctest
+
+gcovr -r . --filter src/ --html --html-details -o reports/coverage.html
