@@ -60,3 +60,6 @@ brew install doxygen
 doxygen -g
 
 doxygen DoxyFile
+
+
+If you have any questions, please contact me at hch.bkhn@gmail.com
