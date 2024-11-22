@@ -51,7 +51,7 @@ pip install gcovr
 
 ctest
 
-gcovr -r . --filter src/ --html --html-details -o reports/coverage.html
+make coverage
 
 # generate document
 
