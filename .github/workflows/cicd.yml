@@ -14,18 +14,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # 2. Set up Python environment for gcovr
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.x
-
-    # 3. Install dependencies
-    - name: Install dependencies
+    # 2. Install dependencies
+    - name: Install build tools
       run: |
         sudo apt update
-        sudo apt install -y cmake g++ lcov python3-pip
-        pip install gcovr
+        sudo apt install -y cmake g++ lcov
+
+    # 3. Clone and build Google Test
+    - name: Build Google Test
+      run: |
+        git clone https://github.com/google/googletest.git
+        cd googletest
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
 
     # 4. Build the project
     - name: Build project
@@ -41,13 +45,13 @@ jobs:
         cd build
         ctest --output-on-failure
 
-    # 6. Generate code coverage report using gcovr
+    # 6. Generate coverage report (optional)
     - name: Generate coverage report
       run: |
         cd build
-        gcovr -r . --filter src/ --html --html-details -o reports/coverage.html
+        gcovr -r . --filter src/ --html --html-details -o reports/coverage_cicd.html
 
-    # 7. Upload coverage report as artifact
+    # 7. Upload coverage report
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
       with:
