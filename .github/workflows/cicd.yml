@@ -37,7 +37,7 @@ jobs:
       run: |
         mkdir -p build
         cd build
-        cmake ..
+        cmake -DCODE_COVERAGE=ON ..
         make
 
     # 5. Prepare test folder
@@ -58,8 +58,7 @@ jobs:
     - name: Generate coverage report
       run: |
         cd build
-        cd ..
-        gcovr -r . --filter src/ --html --html-details -o reports/coverage.html
+        make coverage
 
     # 8. Upload coverage report
     - name: Upload coverage report
@@ -67,7 +66,6 @@ jobs:
       with:
         name: coverage-report
         path: reports/
-
 
     # 9. Fail the job if unit tests fail
     - name: Fail the job if unit tests fail
