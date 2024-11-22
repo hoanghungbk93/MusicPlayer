@@ -18,26 +18,24 @@ jobs:
     - name: Install build tools
       run: |
         sudo apt update
-        sudo apt install -y cmake g++ lcov
+        sudo apt install -y cmake g++ lcov python3-pip
+        pip install gcovr
 
-    # 3. Clone and build Google Test
-    - name: Build Google Test
-      run: |
-        git clone https://github.com/google/googletest.git
-        cd googletest
-        mkdir build
-        cd build
-        cmake ..
-        make
-        sudo make install
-
-    # 4. Build the project
+    # 3. Build the project
     - name: Build project
       run: |
-        mkdir build
+        mkdir -p build
         cd build
         cmake ..
         make
+
+    # 4. Prepare test folder
+    - name: Create test folder
+      run: |
+        mkdir -p build/test_folder
+        touch build/test_folder/song1.mp3
+        touch build/test_folder/song2.mp3
+        touch build/test_folder/song3.mp3
 
     # 5. Run unit tests
     - name: Run unit tests
@@ -45,18 +43,19 @@ jobs:
         cd build
         ctest --output-on-failure
 
-    # 6. Generate coverage report (optional)
+    # 6. Generate code coverage report
     - name: Generate coverage report
       run: |
         cd build
-        gcovr -r . --filter src/ --html --html-details -o reports/coverage_cicd.html
+        cd ..
+        gcovr -r . --filter src/ --html --html-details -o reports/coverage_make_by_cicd.html
 
     # 7. Upload coverage report
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
       with:
         name: coverage-report
-        path: build/reports/coverage.html
+        path: reports/coverage.html
 
     # 8. Fail the job if unit tests fail
     - name: Fail the job if unit tests fail
