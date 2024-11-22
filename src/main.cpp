@@ -59,20 +59,41 @@ int main() {
     // Create the MusicPlayerController with the selected components
     MusicPlayerController controller(*fileManager, *audioOutput, consoleView);
 
-    // Specify the file path to load
-    std::string filePath = "song.mp3";
+    // Specify the folder path to load
+    std::string folderPath = "music_folder"; // Replace with the actual path to your music folder
 
-    // Load the file
-    std::cout << "Loading file: " << filePath << std::endl;
-    controller.loadFile(filePath);
+    // Load the playlist from the folder
+    std::cout << "Loading playlist from folder: " << folderPath << std::endl;
+    controller.loadFolder(folderPath);
 
-    // Play the loaded file
-    std::cout << "Playing file..." << std::endl;
+    // Play the first song in the playlist
+    std::cout << "Playing the first song..." << std::endl;
     controller.play();
 
-    // Stop playback
-    std::cout << "Stopping playback..." << std::endl;
-    controller.stop();
+    // Simulate user input for navigating the playlist
+    char input;
+    while (true) {
+        std::cout << "\nEnter command: (n) Next, (b) Back, (s) Stop, (q) Quit: ";
+        std::cin >> input;
+
+        switch (input) {
+        case 'n':
+            controller.next();
+            break;
+        case 'b':
+            controller.back();
+            break;
+        case 's':
+            controller.stop();
+            break;
+        case 'q':
+            controller.stop();
+            std::cout << "Exiting Music Player..." << std::endl;
+            return 0;
+        default:
+            std::cout << "Invalid command. Try again." << std::endl;
+        }
+    }
 
     return 0;
 }

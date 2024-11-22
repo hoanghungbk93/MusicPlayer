@@ -1,11 +1,12 @@
 /**
  * @file MusicPlayerController.cpp
- * @author HungHC
- * @brief Implementation of the MusicPlayerController class, responsible for controlling music playback.
- * @version 0.1
+ * @author Hung
+ * @brief Implementation of the MusicPlayerController class, responsible for controlling music playback and playlist management.
+ * @version 0.2
  * @date 2024-11-22
  * 
- * @details This file contains the implementation of methods to load, play, and stop audio files.
+ * @details This file contains the implementation of methods to load, play, stop audio files, 
+ * and navigate through a playlist using `next` and `back` functionalities.
  * 
  * @contact hch.bkhn@gmail.com
  * 
@@ -14,36 +15,56 @@
 
 #include "MusicPlayerController.h"
 #include <iostream>
+#include <filesystem>
 
 /**
- * @brief Loads an audio file into the player.
+ * @brief Constructs a MusicPlayerController object.
  * 
- * This function validates the provided file path and sets it as the current file
- * if it is valid. Displays appropriate messages on success or failure.
+ * Initializes the controller with the provided file manager, audio output, and console view.
  * 
- * @param filePath The path to the audio file to be loaded.
+ * @param fileManager Reference to the file manager interface for file operations.
+ * @param audioOutput Reference to the audio output interface for playback operations.
+ * @param consoleView Reference to the console view interface for user messages.
  */
-void MusicPlayerController::loadFile(const std::string& filePath) {
-    if (fileManager.isFileValid(filePath)) {
-        currentFile = filePath;
-        consoleView.displayMessage("Loaded file: " + currentFile);
+MusicPlayerController::MusicPlayerController(FileManagerInterface& fileManager, AudioOutputInterface& audioOutput, ConsoleView& consoleView)
+    : fileManager(fileManager), audioOutput(audioOutput), consoleView(consoleView) {}
+
+/**
+ * @brief Loads a playlist from a specified folder.
+ * 
+ * Scans the folder for valid audio files using the file manager and adds them to the playlist.
+ * If no valid files are found, an error message is displayed.
+ * 
+ * @param folderPath The path to the folder containing audio files.
+ */
+void MusicPlayerController::loadFolder(const std::string& folderPath) {
+    playlist.clear();
+    for (const auto& entry : std::filesystem::directory_iterator(folderPath)) {
+        if (fileManager.isFileValid(entry.path().string())) {
+            playlist.push_back(entry.path().string());
+        }
+    }
+
+    if (playlist.empty()) {
+        consoleView.displayError("No valid files found in the folder: " + folderPath);
     } else {
-        consoleView.displayError("Invalid file: " + filePath);
+        currentIndex = 0;
+        consoleView.displayMessage("Playlist loaded. Total files: " + std::to_string(playlist.size()));
     }
 }
 
 /**
- * @brief Plays the currently loaded audio file.
+ * @brief Plays the currently selected audio file in the playlist.
  * 
- * This function checks if a file is loaded and initializes the audio output.
- * If successful, it plays the file and updates the player's status. Displays
- * messages for success or any errors encountered.
+ * If the playlist is not empty and audio output is initialized successfully, this method
+ * plays the current file and updates the playing status. Displays messages for success
+ * or errors encountered.
  */
 void MusicPlayerController::play() {
-    if (!currentFile.empty() && audioOutput.initialize()) {
-        if (audioOutput.playSound(currentFile)) {
+    if (currentIndex >= 0 && !playlist.empty() && audioOutput.initialize()) {
+        if (audioOutput.playSound(playlist[currentIndex])) {
             isPlaying = true;
-            consoleView.displayMessage("Playing...");
+            consoleView.displayMessage("Playing: " + playlist[currentIndex]);
         } else {
             consoleView.displayError("Failed to play the file.");
         }
@@ -55,13 +76,44 @@ void MusicPlayerController::play() {
 /**
  * @brief Stops the currently playing audio file.
  * 
- * This function stops the playback and resets the player's status to indicate
- * that no audio is playing. Displays a confirmation message.
+ * Stops the playback and resets the playing status. Displays a confirmation message.
  */
 void MusicPlayerController::stop() {
     if (isPlaying) {
         audioOutput.stop();
         isPlaying = false;
-        consoleView.displayMessage("Stopped.");
+        consoleView.displayMessage("Playback stopped.");
+    }
+}
+
+/**
+ * @brief Plays the next audio file in the playlist.
+ * 
+ * Advances the current index to the next file in the playlist. If the current file
+ * is the last in the playlist, the index loops back to the first file. Automatically
+ * starts playback of the selected file.
+ */
+void MusicPlayerController::next() {
+    if (!playlist.empty()) {
+        currentIndex = (currentIndex + 1) % playlist.size();
+        play();
+    } else {
+        consoleView.displayError("Playlist is empty.");
+    }
+}
+
+/**
+ * @brief Plays the previous audio file in the playlist.
+ * 
+ * Decreases the current index to the previous file in the playlist. If the current file
+ * is the first in the playlist, the index loops back to the last file. Automatically
+ * starts playback of the selected file.
+ */
+void MusicPlayerController::back() {
+    if (!playlist.empty()) {
+        currentIndex = (currentIndex - 1 + playlist.size()) % playlist.size();
+        play();
+    } else {
+        consoleView.displayError("Playlist is empty.");
     }
 }

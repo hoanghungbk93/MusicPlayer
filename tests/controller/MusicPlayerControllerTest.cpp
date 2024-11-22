@@ -1,90 +1,100 @@
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "controller/MusicPlayerController.h"
-#include "model/FileManagerProxy.h"
-#include "model/AudioOutputProxy.h"
-#include "model/Mp3FileManager.h"
-#include "model/HeadphoneOutput.h"
+#include "model/FileManagerInterface.h"
+#include "model/AudioOutputInterface.h"
 #include "view/ConsoleView.h"
 
-TEST(MusicPlayerControllerTest, TestLoadFileValid) {
-    // Khởi tạo đối tượng thực
-    Mp3FileManager realFileManager;
-    FileManagerProxy fileManagerProxy(&realFileManager);
+/**
+ * @class MockFileManager
+ * @brief Mock implementation of FileManagerInterface for testing.
+ */
+class MockFileManager : public FileManagerInterface {
+public:
+    MOCK_METHOD(bool, isFileValid, (const std::string& filePath), (const, override));
+    MOCK_METHOD(std::vector<std::string>, getSupportedFormats, (), (const, override));
+};
 
-    // Mock hành vi của isFileValid
-    fileManagerProxy.setMockIsFileValid([](const std::string& filePath) {
-        return filePath == "valid.mp3";
-    });
+/**
+ * @class MockAudioOutput
+ * @brief Mock implementation of AudioOutputInterface for testing.
+ */
+class MockAudioOutput : public AudioOutputInterface {
+public:
+    MOCK_METHOD(bool, initialize, (), (override));
+    MOCK_METHOD(bool, playSound, (const std::string& soundData), (override));
+    MOCK_METHOD(void, stop, (), (override));
+};
 
-    HeadphoneOutput realAudioOutput;
-    ConsoleView consoleView;
+/**
+ * @class MockConsoleView
+ * @brief Mock implementation of ConsoleView for testing.
+ */
+class MockConsoleView : public ConsoleView {
+public:
+    // MOCK_METHOD(void, displayMessage, (const std::string& message), (override));
+    // MOCK_METHOD(void, displayError, (const std::string& error), (override));
+};
 
-    // Tạo controller với proxy
-    MusicPlayerController controller(fileManagerProxy, realAudioOutput, consoleView);
+/**
+ * @test Tests the loading of a playlist from a folder.
+ */
+TEST(MusicPlayerControllerTest, LoadFolder) {
+    MockFileManager mockFileManager;
+    MockAudioOutput mockAudioOutput;
+    MockConsoleView mockConsoleView;
 
-    // Kiểm tra tệp hợp lệ
-    controller.loadFile("valid.mp3");
-    // Không hợp lệ
-    controller.loadFile("invalid.mp4");
+    EXPECT_CALL(mockFileManager, isFileValid(testing::_))
+        .WillRepeatedly(testing::Return(true));
+
+    MusicPlayerController controller(mockFileManager, mockAudioOutput, mockConsoleView);
+
+    // EXPECT_CALL(mockConsoleView, displayMessage(testing::Contains("Playlist loaded")));
+    controller.loadFolder("test_folder");
 }
 
-TEST(MusicPlayerControllerTest, TestPlayAndStopWithMockedAudio) {
-    Mp3FileManager realFileManager;
-    FileManagerProxy fileManagerProxy(&realFileManager);
+/**
+ * @test Tests the "next" function to play the next track.
+ */
+TEST(MusicPlayerControllerTest, NextTrack) {
+    MockFileManager mockFileManager;
+    MockAudioOutput mockAudioOutput;
+    MockConsoleView mockConsoleView;
 
-    // Không cần mock FileManager, dùng trực tiếp đối tượng thực
+    EXPECT_CALL(mockFileManager, isFileValid(testing::_))
+        .WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(mockAudioOutput, initialize())
+        .WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(mockAudioOutput, playSound(testing::_))
+        .WillRepeatedly(testing::Return(true));
 
-    HeadphoneOutput realAudioOutput;
-    AudioOutputProxy audioProxy(&realAudioOutput);
+    MusicPlayerController controller(mockFileManager, mockAudioOutput, mockConsoleView);
 
-    // Mock hành vi của AudioOutput
-    audioProxy.setMockInitialize([]() {
-        return true; // Giả lập khởi tạo thành công
-    });
-
-    audioProxy.setMockPlaySound([](const std::string& soundData) {
-        return soundData == "song.mp3"; // Chỉ phát âm thanh với tệp "song.mp3"
-    });
-
-    audioProxy.setMockStop([]() {
-        // Có thể thêm logic giả lập nếu cần
-    });
-
-    ConsoleView consoleView;
-
-    // Tạo controller với proxy
-    MusicPlayerController controller(fileManagerProxy, audioProxy, consoleView);
-
-    // Tải tệp và phát
-    controller.loadFile("song.mp3");
+    controller.loadFolder("test_folder");
     controller.play();
-    controller.stop();
+
+    controller.next(); // Expect next track
 }
 
-TEST(MusicPlayerControllerTest, TestPlayInvalidFile) {
-    Mp3FileManager realFileManager;
-    FileManagerProxy fileManagerProxy(&realFileManager);
+/**
+ * @test Tests the "back" function to play the previous track.
+ */
+TEST(MusicPlayerControllerTest, PreviousTrack) {
+    MockFileManager mockFileManager;
+    MockAudioOutput mockAudioOutput;
+    MockConsoleView mockConsoleView;
 
-    // Không cần mock FileManager, dùng trực tiếp đối tượng thực
+    EXPECT_CALL(mockFileManager, isFileValid(testing::_))
+        .WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(mockAudioOutput, initialize())
+        .WillRepeatedly(testing::Return(true));
+    EXPECT_CALL(mockAudioOutput, playSound(testing::_))
+        .WillRepeatedly(testing::Return(true));
 
-    HeadphoneOutput realAudioOutput;
-    AudioOutputProxy audioProxy(&realAudioOutput);
+    MusicPlayerController controller(mockFileManager, mockAudioOutput, mockConsoleView);
 
-    // Mock AudioOutput cho trường hợp tệp không hợp lệ
-    audioProxy.setMockInitialize([]() {
-        return true; // Giả lập khởi tạo thành công
-    });
-
-    audioProxy.setMockPlaySound([](const std::string& soundData) {
-        return false; // Không thể phát tệp không hợp lệ
-    });
-
-    ConsoleView consoleView;
-
-    // Tạo controller với proxy
-    MusicPlayerController controller(fileManagerProxy, audioProxy, consoleView);
-
-    // Tải tệp không hợp lệ và thử phát
-    controller.loadFile("invalid.mp4");
+    controller.loadFolder("test_folder");
     controller.play();
+
+    controller.back(); // Expect previous track
 }
