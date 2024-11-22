@@ -1,6 +1,4 @@
 # Install Google Test
-Cách 1: Clone Google Test from GitHub
-
 git clone https://github.com/google/googletest.git
 cd googletest
 mkdir build
@@ -11,13 +9,10 @@ sudo make install
 
 # Combine and run program
 
-Bước 1: create build folder
 cd MusicPlayer
 mkdir build
 cd build
-Bước 2: Run Cmake
 cmake ..
-Bước 3: Combine
 make
 
 # Run executable files
