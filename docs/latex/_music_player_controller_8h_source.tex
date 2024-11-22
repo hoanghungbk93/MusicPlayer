@@ -1,0 +1,36 @@
+\doxysection{Music\+Player\+Controller.\+h}
+\hypertarget{_music_player_controller_8h_source}{}\label{_music_player_controller_8h_source}\index{src/controller/MusicPlayerController.h@{src/controller/MusicPlayerController.h}}
+\mbox{\hyperlink{_music_player_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ MUSIC\_PLAYER\_CONTROLLER\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MUSIC\_PLAYER\_CONTROLLER\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_file_manager_interface_8h}{../model/FileManagerInterface.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_audio_output_interface_8h}{../model/AudioOutputInterface.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_console_view_8h}{../view/ConsoleView.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_music_player_controller}{MusicPlayerController}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_music_player_controller_aed7085dbd9479f5e23c1c8215b0fef3d}{MusicPlayerController}}(\mbox{\hyperlink{class_file_manager_interface}{FileManagerInterface}}\&\ fileManager,\ \mbox{\hyperlink{class_audio_output_interface}{AudioOutputInterface}}\&\ audioOutput,\ \mbox{\hyperlink{class_console_view}{ConsoleView}}\&\ consoleView)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ :\ fileManager(fileManager),\ audioOutput(audioOutput),\ consoleView(consoleView)\ \{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_player_controller_a482f873bfa3e7b40134dfc9fef54407c}{loadFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_player_controller_a44268d90c802b177ff9289c679b1fb53}{play}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_player_controller_a1438e19e5e6bab8fe577b3152b2db8a6}{stop}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_file_manager_interface}{FileManagerInterface}}\&\ fileManager;\ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_audio_output_interface}{AudioOutputInterface}}\&\ audioOutput;\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_console_view}{ConsoleView}}\&\ consoleView;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::string\ currentFile;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPlaying\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MUSIC\_PLAYER\_CONTROLLER\_H}}
+
+\end{DoxyCode}

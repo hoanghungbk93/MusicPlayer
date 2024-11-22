@@ -1,0 +1,23 @@
+\doxysection{Speaker\+Output.\+h}
+\hypertarget{_speaker_output_8h_source}{}\label{_speaker_output_8h_source}\index{src/model/SpeakerOutput.h@{src/model/SpeakerOutput.h}}
+\mbox{\hyperlink{_speaker_output_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ SPEAKER\_OUTPUT\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ SPEAKER\_OUTPUT\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_audio_output_interface_8h}{AudioOutputInterface.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_speaker_output}{SpeakerOutput}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_audio_output_interface}{AudioOutputInterface}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_speaker_output_ad7573e59ebadda09b4b1303e96d3a8fc}{initialize}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_speaker_output_af7124700f5b962ef353d5ebc822b801a}{playSound}}(\textcolor{keyword}{const}\ std::string\&\ soundData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_speaker_output_aedd6730563dec5611f74480b4d40f534}{stop}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SPEAKER\_OUTPUT\_H}}
+
+\end{DoxyCode}

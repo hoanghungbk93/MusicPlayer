@@ -1,0 +1,95 @@
+\doxysection{File\+Manager\+Interface Class Reference}
+\hypertarget{class_file_manager_interface}{}\label{class_file_manager_interface}\index{FileManagerInterface@{FileManagerInterface}}
+
+
+An interface for managing file-\/related operations.  
+
+
+
+
+{\ttfamily \#include $<$File\+Manager\+Interface.\+h$>$}
+
+Inheritance diagram for File\+Manager\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_file_manager_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_file_manager_interface_a67f45e6c0461f091793bca0c85e27be5}{is\+File\+Valid}} (const std\+::string \&file\+Path) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the specified file is valid. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_file_manager_interface_a9014c6fcc1ed5d788a8ffc78f60fe8c6}{get\+Supported\+Formats}} () const =0
+\begin{DoxyCompactList}\small\item\em Retrieves a list of supported file formats. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_file_manager_interface_a2670fbfbe0b2ee4273eff07a98c904d7}{\texorpdfstring{$\sim$}{\string~}\+File\+Manager\+Interface}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An interface for managing file-\/related operations. 
+
+This abstract class defines methods to validate file paths and retrieve a list of supported file formats. It serves as a base for implementing file management in various systems. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_file_manager_interface_a2670fbfbe0b2ee4273eff07a98c904d7}\index{FileManagerInterface@{FileManagerInterface}!````~FileManagerInterface@{\texorpdfstring{$\sim$}{\string~}FileManagerInterface}}
+\index{````~FileManagerInterface@{\texorpdfstring{$\sim$}{\string~}FileManagerInterface}!FileManagerInterface@{FileManagerInterface}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FileManagerInterface()}{\string~FileManagerInterface()}}
+{\footnotesize\ttfamily \label{class_file_manager_interface_a2670fbfbe0b2ee4273eff07a98c904d7} 
+virtual File\+Manager\+Interface\+::\texorpdfstring{$\sim$}{\string~}\+File\+Manager\+Interface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor. 
+
+Ensures proper cleanup of derived classes when deleted through a pointer to this interface. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_manager_interface_a9014c6fcc1ed5d788a8ffc78f60fe8c6}\index{FileManagerInterface@{FileManagerInterface}!getSupportedFormats@{getSupportedFormats}}
+\index{getSupportedFormats@{getSupportedFormats}!FileManagerInterface@{FileManagerInterface}}
+\doxysubsubsection{\texorpdfstring{getSupportedFormats()}{getSupportedFormats()}}
+{\footnotesize\ttfamily \label{class_file_manager_interface_a9014c6fcc1ed5d788a8ffc78f60fe8c6} 
+virtual std\+::vector$<$ std\+::string $>$ File\+Manager\+Interface\+::get\+Supported\+Formats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves a list of supported file formats. 
+
+This method returns a collection of file extensions or formats that are supported by the system.
+
+\begin{DoxyReturn}{Returns}
+A vector of strings containing the supported file formats. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_mp3_file_manager_abb2dfe62b6540868ea8cb3198cf2e479}{Mp3\+File\+Manager}}, and \mbox{\hyperlink{class_mp4_file_manager_a1b7d535bf32b21cf460656b5edbb39ee}{Mp4\+File\+Manager}}.
+
+\Hypertarget{class_file_manager_interface_a67f45e6c0461f091793bca0c85e27be5}\index{FileManagerInterface@{FileManagerInterface}!isFileValid@{isFileValid}}
+\index{isFileValid@{isFileValid}!FileManagerInterface@{FileManagerInterface}}
+\doxysubsubsection{\texorpdfstring{isFileValid()}{isFileValid()}}
+{\footnotesize\ttfamily \label{class_file_manager_interface_a67f45e6c0461f091793bca0c85e27be5} 
+virtual bool File\+Manager\+Interface\+::is\+File\+Valid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if the specified file is valid. 
+
+This method validates the given file path to ensure it meets the required criteria.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path of the file to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_mp3_file_manager_a1dd4357c7bcf3b8178d7ba4388b30c90}{Mp3\+File\+Manager}}, and \mbox{\hyperlink{class_mp4_file_manager_a764561df98414e0a4bae78a6fe547d97}{Mp4\+File\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{_file_manager_interface_8h}{File\+Manager\+Interface.\+h}}\end{DoxyCompactItemize}

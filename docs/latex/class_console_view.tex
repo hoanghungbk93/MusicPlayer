@@ -1,0 +1,80 @@
+\doxysection{Console\+View Class Reference}
+\hypertarget{class_console_view}{}\label{class_console_view}\index{ConsoleView@{ConsoleView}}
+
+
+A class for displaying messages and errors in the console.  
+
+
+
+
+{\ttfamily \#include $<$Console\+View.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_console_view_ae18ffaea9543fe136ef0b632d9f17208}{display\+Message}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Displays a message to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_console_view_ae5e42d69e795ebed53ad4a0f05c4c73b}{display\+Error}} (const std\+::string \&error)
+\begin{DoxyCompactList}\small\item\em Displays an error message to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for displaying messages and errors in the console. 
+
+The \doxylink{class_console_view}{Console\+View} class provides methods to output standard messages and error messages to the console. It uses {\ttfamily std\+::cout} for messages and {\ttfamily std\+::cerr} for errors. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_console_view_ae5e42d69e795ebed53ad4a0f05c4c73b}\index{ConsoleView@{ConsoleView}!displayError@{displayError}}
+\index{displayError@{displayError}!ConsoleView@{ConsoleView}}
+\doxysubsubsection{\texorpdfstring{displayError()}{displayError()}}
+{\footnotesize\ttfamily \label{class_console_view_ae5e42d69e795ebed53ad4a0f05c4c73b} 
+void Console\+View\+::display\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{error}{}\end{DoxyParamCaption})}
+
+
+
+Displays an error message to the console. 
+
+This method outputs an error message to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & The error message to be displayed.\\
+\hline
+\end{DoxyParams}
+This method outputs an error message to the console using {\ttfamily std\+::cerr}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & The error message to be displayed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_console_view_ae18ffaea9543fe136ef0b632d9f17208}\index{ConsoleView@{ConsoleView}!displayMessage@{displayMessage}}
+\index{displayMessage@{displayMessage}!ConsoleView@{ConsoleView}}
+\doxysubsubsection{\texorpdfstring{displayMessage()}{displayMessage()}}
+{\footnotesize\ttfamily \label{class_console_view_ae18ffaea9543fe136ef0b632d9f17208} 
+void Console\+View\+::display\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Displays a message to the console. 
+
+This method outputs a standard message to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be displayed.\\
+\hline
+\end{DoxyParams}
+This method outputs a standard message to the console using {\ttfamily std\+::cout}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\mbox{\hyperlink{_console_view_8h}{Console\+View.\+h}}\item 
+src/view/\mbox{\hyperlink{_console_view_8cpp}{Console\+View.\+cpp}}\end{DoxyCompactItemize}

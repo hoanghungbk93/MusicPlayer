@@ -1,0 +1,103 @@
+\doxysection{Mp3\+File\+Manager Class Reference}
+\hypertarget{class_mp3_file_manager}{}\label{class_mp3_file_manager}\index{Mp3FileManager@{Mp3FileManager}}
+
+
+A class for managing MP3 files.  
+
+
+
+
+{\ttfamily \#include $<$Mp3\+File\+Manager.\+h$>$}
+
+Inheritance diagram for Mp3\+File\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mp3_file_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_mp3_file_manager_a1dd4357c7bcf3b8178d7ba4388b30c90}{is\+File\+Valid}} (const std\+::string \&file\+Path) const override
+\begin{DoxyCompactList}\small\item\em Validates if a given file path corresponds to a valid MP3 file. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_mp3_file_manager_abb2dfe62b6540868ea8cb3198cf2e479}{get\+Supported\+Formats}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the list of supported audio formats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_file_manager_interface}{File\+Manager\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_file_manager_interface_a2670fbfbe0b2ee4273eff07a98c904d7}{\texorpdfstring{$\sim$}{\string~}\+File\+Manager\+Interface}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for managing MP3 files. 
+
+The \doxylink{class_mp3_file_manager}{Mp3\+File\+Manager} class provides methods to validate MP3 file paths and retrieve a list of supported audio formats. It implements the \doxylink{class_file_manager_interface}{File\+Manager\+Interface}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mp3_file_manager_abb2dfe62b6540868ea8cb3198cf2e479}\index{Mp3FileManager@{Mp3FileManager}!getSupportedFormats@{getSupportedFormats}}
+\index{getSupportedFormats@{getSupportedFormats}!Mp3FileManager@{Mp3FileManager}}
+\doxysubsubsection{\texorpdfstring{getSupportedFormats()}{getSupportedFormats()}}
+{\footnotesize\ttfamily \label{class_mp3_file_manager_abb2dfe62b6540868ea8cb3198cf2e479} 
+std\+::vector$<$ std\+::string $>$ Mp3\+File\+Manager\+::get\+Supported\+Formats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the list of supported audio formats. 
+
+This method returns a vector containing the supported audio file formats. For this implementation, only the {\ttfamily .mp3} format is supported.
+
+\begin{DoxyReturn}{Returns}
+A vector of strings containing the supported file formats.
+\end{DoxyReturn}
+This method returns a vector containing the supported audio file formats. For this class, only the {\ttfamily .mp3} format is supported.
+
+\begin{DoxyReturn}{Returns}
+A vector of strings containing the supported file formats. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_file_manager_interface_a9014c6fcc1ed5d788a8ffc78f60fe8c6}{File\+Manager\+Interface}}.
+
+\Hypertarget{class_mp3_file_manager_a1dd4357c7bcf3b8178d7ba4388b30c90}\index{Mp3FileManager@{Mp3FileManager}!isFileValid@{isFileValid}}
+\index{isFileValid@{isFileValid}!Mp3FileManager@{Mp3FileManager}}
+\doxysubsubsection{\texorpdfstring{isFileValid()}{isFileValid()}}
+{\footnotesize\ttfamily \label{class_mp3_file_manager_a1dd4357c7bcf3b8178d7ba4388b30c90} 
+bool Mp3\+File\+Manager\+::is\+File\+Valid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Validates if a given file path corresponds to a valid MP3 file. 
+
+Validates if the given file path corresponds to an MP3 file.
+
+This method checks whether the file path has a {\ttfamily .mp3} extension.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The file path to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file path is valid and corresponds to an MP3 file, false otherwise.
+\end{DoxyReturn}
+This method checks whether the file path ends with the {\ttfamily .mp3} extension to determine if it is a valid MP3 file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The file path to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file path ends with {\ttfamily .mp3}, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_file_manager_interface_a67f45e6c0461f091793bca0c85e27be5}{File\+Manager\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{_mp3_file_manager_8h}{Mp3\+File\+Manager.\+h}}\item 
+src/model/\mbox{\hyperlink{_mp3_file_manager_8cpp}{Mp3\+File\+Manager.\+cpp}}\end{DoxyCompactItemize}

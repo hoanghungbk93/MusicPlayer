@@ -1,0 +1,119 @@
+\doxysection{Speaker\+Output Class Reference}
+\hypertarget{class_speaker_output}{}\label{class_speaker_output}\index{SpeakerOutput@{SpeakerOutput}}
+
+
+A concrete implementation of \doxylink{class_audio_output_interface}{Audio\+Output\+Interface} for speaker output.  
+
+
+
+
+{\ttfamily \#include $<$Speaker\+Output.\+h$>$}
+
+Inheritance diagram for Speaker\+Output\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_speaker_output}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_speaker_output_ad7573e59ebadda09b4b1303e96d3a8fc}{initialize}} () override
+\begin{DoxyCompactList}\small\item\em Initializes the speaker output system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_speaker_output_af7124700f5b962ef353d5ebc822b801a}{play\+Sound}} (const std\+::string \&sound\+Data) override
+\begin{DoxyCompactList}\small\item\em Plays sound through the speakers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_speaker_output_aedd6730563dec5611f74480b4d40f534}{stop}} () override
+\begin{DoxyCompactList}\small\item\em Stops the speaker output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_audio_output_interface}{Audio\+Output\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_audio_output_interface_a81d15d1eb9eb58ac66f845575ade51c6}{\texorpdfstring{$\sim$}{\string~}\+Audio\+Output\+Interface}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete implementation of \doxylink{class_audio_output_interface}{Audio\+Output\+Interface} for speaker output. 
+
+The \doxylink{class_speaker_output}{Speaker\+Output} class provides functionality to initialize the audio system, play sound through speakers, and stop audio playback. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_speaker_output_ad7573e59ebadda09b4b1303e96d3a8fc}\index{SpeakerOutput@{SpeakerOutput}!initialize@{initialize}}
+\index{initialize@{initialize}!SpeakerOutput@{SpeakerOutput}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{class_speaker_output_ad7573e59ebadda09b4b1303e96d3a8fc} 
+bool Speaker\+Output\+::initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initializes the speaker output system. 
+
+This method sets up the speaker output for audio playback.
+
+\begin{DoxyReturn}{Returns}
+True if the initialization is successful.
+\end{DoxyReturn}
+This method sets up the speaker output for audio playback. It always returns {\ttfamily true} in this implementation, indicating successful initialization.
+
+\begin{DoxyReturn}{Returns}
+true Always returns true to indicate successful initialization. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_output_interface_adf68d0fb41e0f2f86544cbcd782e2a1f}{Audio\+Output\+Interface}}.
+
+\Hypertarget{class_speaker_output_af7124700f5b962ef353d5ebc822b801a}\index{SpeakerOutput@{SpeakerOutput}!playSound@{playSound}}
+\index{playSound@{playSound}!SpeakerOutput@{SpeakerOutput}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily \label{class_speaker_output_af7124700f5b962ef353d5ebc822b801a} 
+bool Speaker\+Output\+::play\+Sound (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sound\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Plays sound through the speakers. 
+
+This method accepts audio data in string format and plays it through the speaker output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Data} & The audio data to be played. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sound is successfully played.
+\end{DoxyReturn}
+This method simulates audio playback by outputting a message to the console with the provided sound data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Data} & The audio data to be played through the speakers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Always returns true to indicate successful playback. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_output_interface_ac3f0466d03a5640b9c4e4e0de1eab61c}{Audio\+Output\+Interface}}.
+
+\Hypertarget{class_speaker_output_aedd6730563dec5611f74480b4d40f534}\index{SpeakerOutput@{SpeakerOutput}!stop@{stop}}
+\index{stop@{stop}!SpeakerOutput@{SpeakerOutput}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_speaker_output_aedd6730563dec5611f74480b4d40f534} 
+void Speaker\+Output\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stops the speaker output. 
+
+This method stops any ongoing audio playback through the speakers.
+
+This method stops any sound currently being played through the speakers and outputs a message indicating that the playback has been stopped. 
+
+Implements \mbox{\hyperlink{class_audio_output_interface_a740e131c965dab034862fb5cf55f75b0}{Audio\+Output\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{_speaker_output_8h}{Speaker\+Output.\+h}}\item 
+src/model/\mbox{\hyperlink{_speaker_output_8cpp}{Speaker\+Output.\+cpp}}\end{DoxyCompactItemize}

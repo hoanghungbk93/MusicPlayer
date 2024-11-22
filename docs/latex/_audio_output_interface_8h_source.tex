@@ -1,0 +1,24 @@
+\doxysection{Audio\+Output\+Interface.\+h}
+\hypertarget{_audio_output_interface_8h_source}{}\label{_audio_output_interface_8h_source}\index{src/model/AudioOutputInterface.h@{src/model/AudioOutputInterface.h}}
+\mbox{\hyperlink{_audio_output_interface_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ AUDIO\_OUTPUT\_INTERFACE\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ AUDIO\_OUTPUT\_INTERFACE\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_audio_output_interface}{AudioOutputInterface}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_audio_output_interface_adf68d0fb41e0f2f86544cbcd782e2a1f}{initialize}}()\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_audio_output_interface_ac3f0466d03a5640b9c4e4e0de1eab61c}{playSound}}(\textcolor{keyword}{const}\ std::string\&\ soundData)\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_audio_output_interface_a740e131c965dab034862fb5cf55f75b0}{stop}}()\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_audio_output_interface_a81d15d1eb9eb58ac66f845575ade51c6}{\string~AudioOutputInterface}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ AUDIO\_OUTPUT\_INTERFACE\_H}}
+
+\end{DoxyCode}

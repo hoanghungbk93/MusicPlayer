@@ -1,0 +1,110 @@
+\doxysection{Music\+Player\+Controller Class Reference}
+\hypertarget{class_music_player_controller}{}\label{class_music_player_controller}\index{MusicPlayerController@{MusicPlayerController}}
+
+
+A class for controlling music playback.  
+
+
+
+
+{\ttfamily \#include $<$Music\+Player\+Controller.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_player_controller_aed7085dbd9479f5e23c1c8215b0fef3d}{Music\+Player\+Controller}} (\mbox{\hyperlink{class_file_manager_interface}{File\+Manager\+Interface}} \&file\+Manager, \mbox{\hyperlink{class_audio_output_interface}{Audio\+Output\+Interface}} \&audio\+Output, \mbox{\hyperlink{class_console_view}{Console\+View}} \&console\+View)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_music_player_controller}{Music\+Player\+Controller} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_player_controller_a482f873bfa3e7b40134dfc9fef54407c}{load\+File}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Loads an audio file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_player_controller_a44268d90c802b177ff9289c679b1fb53}{play}} ()
+\begin{DoxyCompactList}\small\item\em Plays the currently loaded audio file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_player_controller_a1438e19e5e6bab8fe577b3152b2db8a6}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the currently playing audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for controlling music playback. 
+
+The \doxylink{class_music_player_controller}{Music\+Player\+Controller} class manages interactions between the file manager, audio output, and console view to handle music playback functionalities. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_player_controller_aed7085dbd9479f5e23c1c8215b0fef3d}\index{MusicPlayerController@{MusicPlayerController}!MusicPlayerController@{MusicPlayerController}}
+\index{MusicPlayerController@{MusicPlayerController}!MusicPlayerController@{MusicPlayerController}}
+\doxysubsubsection{\texorpdfstring{MusicPlayerController()}{MusicPlayerController()}}
+{\footnotesize\ttfamily \label{class_music_player_controller_aed7085dbd9479f5e23c1c8215b0fef3d} 
+Music\+Player\+Controller\+::\+Music\+Player\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_file_manager_interface}{File\+Manager\+Interface}} \&}]{file\+Manager}{, }\item[{\mbox{\hyperlink{class_audio_output_interface}{Audio\+Output\+Interface}} \&}]{audio\+Output}{, }\item[{\mbox{\hyperlink{class_console_view}{Console\+View}} \&}]{console\+View}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new \doxylink{class_music_player_controller}{Music\+Player\+Controller} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Manager} & Reference to the file manager interface for file operations. \\
+\hline
+{\em audio\+Output} & Reference to the audio output interface for playback operations. \\
+\hline
+{\em console\+View} & Reference to the console view interface for user messages. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_player_controller_a482f873bfa3e7b40134dfc9fef54407c}\index{MusicPlayerController@{MusicPlayerController}!loadFile@{loadFile}}
+\index{loadFile@{loadFile}!MusicPlayerController@{MusicPlayerController}}
+\doxysubsubsection{\texorpdfstring{loadFile()}{loadFile()}}
+{\footnotesize\ttfamily \label{class_music_player_controller_a482f873bfa3e7b40134dfc9fef54407c} 
+void Music\+Player\+Controller\+::load\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Loads an audio file. 
+
+Loads an audio file into the player.
+
+This method validates and sets the specified file as the current file for playback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path to the audio file to be loaded.\\
+\hline
+\end{DoxyParams}
+This function validates the provided file path and sets it as the current file if it is valid. Displays appropriate messages on success or failure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The path to the audio file to be loaded. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_music_player_controller_a44268d90c802b177ff9289c679b1fb53}\index{MusicPlayerController@{MusicPlayerController}!play@{play}}
+\index{play@{play}!MusicPlayerController@{MusicPlayerController}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{class_music_player_controller_a44268d90c802b177ff9289c679b1fb53} 
+void Music\+Player\+Controller\+::play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Plays the currently loaded audio file. 
+
+This method starts audio playback if a valid file is loaded and audio output is initialized.
+
+This function checks if a file is loaded and initializes the audio output. If successful, it plays the file and updates the player\textquotesingle{}s status. Displays messages for success or any errors encountered. \Hypertarget{class_music_player_controller_a1438e19e5e6bab8fe577b3152b2db8a6}\index{MusicPlayerController@{MusicPlayerController}!stop@{stop}}
+\index{stop@{stop}!MusicPlayerController@{MusicPlayerController}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_music_player_controller_a1438e19e5e6bab8fe577b3152b2db8a6} 
+void Music\+Player\+Controller\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the currently playing audio. 
+
+Stops the currently playing audio file.
+
+This method stops the playback and resets the playback state.
+
+This function stops the playback and resets the player\textquotesingle{}s status to indicate that no audio is playing. Displays a confirmation message. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/controller/\mbox{\hyperlink{_music_player_controller_8h}{Music\+Player\+Controller.\+h}}\item 
+src/controller/\mbox{\hyperlink{_music_player_controller_8cpp}{Music\+Player\+Controller.\+cpp}}\end{DoxyCompactItemize}

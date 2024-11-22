@@ -1,0 +1,119 @@
+\doxysection{Headphone\+Output Class Reference}
+\hypertarget{class_headphone_output}{}\label{class_headphone_output}\index{HeadphoneOutput@{HeadphoneOutput}}
+
+
+A concrete implementation of \doxylink{class_audio_output_interface}{Audio\+Output\+Interface} for headphone output.  
+
+
+
+
+{\ttfamily \#include $<$Headphone\+Output.\+h$>$}
+
+Inheritance diagram for Headphone\+Output\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_headphone_output}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_headphone_output_a0db8bfda3fc4257b38de61f13c1f5cd0}{initialize}} () override
+\begin{DoxyCompactList}\small\item\em Initializes the headphone output system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_headphone_output_a5fb5284e17f468f892a53aa16434ff04}{play\+Sound}} (const std\+::string \&sound\+Data) override
+\begin{DoxyCompactList}\small\item\em Plays sound through the headphones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_headphone_output_a2c0e004d695d91e1934491f996db2c1e}{stop}} () override
+\begin{DoxyCompactList}\small\item\em Stops the headphone output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_audio_output_interface}{Audio\+Output\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_audio_output_interface_a81d15d1eb9eb58ac66f845575ade51c6}{\texorpdfstring{$\sim$}{\string~}\+Audio\+Output\+Interface}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete implementation of \doxylink{class_audio_output_interface}{Audio\+Output\+Interface} for headphone output. 
+
+The \doxylink{class_headphone_output}{Headphone\+Output} class provides functionality to initialize the audio system, play sound through headphones, and stop audio playback. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_headphone_output_a0db8bfda3fc4257b38de61f13c1f5cd0}\index{HeadphoneOutput@{HeadphoneOutput}!initialize@{initialize}}
+\index{initialize@{initialize}!HeadphoneOutput@{HeadphoneOutput}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{class_headphone_output_a0db8bfda3fc4257b38de61f13c1f5cd0} 
+bool Headphone\+Output\+::initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initializes the headphone output system. 
+
+This method sets up the headphone output for audio playback.
+
+\begin{DoxyReturn}{Returns}
+True if the initialization is successful.
+\end{DoxyReturn}
+This method sets up the headphone output for playback. It always returns {\ttfamily true} in this implementation, indicating successful initialization.
+
+\begin{DoxyReturn}{Returns}
+true Always returns true to indicate successful initialization. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_output_interface_adf68d0fb41e0f2f86544cbcd782e2a1f}{Audio\+Output\+Interface}}.
+
+\Hypertarget{class_headphone_output_a5fb5284e17f468f892a53aa16434ff04}\index{HeadphoneOutput@{HeadphoneOutput}!playSound@{playSound}}
+\index{playSound@{playSound}!HeadphoneOutput@{HeadphoneOutput}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily \label{class_headphone_output_a5fb5284e17f468f892a53aa16434ff04} 
+bool Headphone\+Output\+::play\+Sound (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sound\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Plays sound through the headphones. 
+
+This method accepts audio data in string format and plays it through the headphone output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Data} & The audio data to be played. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sound is successfully played.
+\end{DoxyReturn}
+This method simulates audio playback by outputting a message to the console with the provided sound data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Data} & The audio data to be played through the headphones. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Always returns true to indicate successful playback. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_audio_output_interface_ac3f0466d03a5640b9c4e4e0de1eab61c}{Audio\+Output\+Interface}}.
+
+\Hypertarget{class_headphone_output_a2c0e004d695d91e1934491f996db2c1e}\index{HeadphoneOutput@{HeadphoneOutput}!stop@{stop}}
+\index{stop@{stop}!HeadphoneOutput@{HeadphoneOutput}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_headphone_output_a2c0e004d695d91e1934491f996db2c1e} 
+void Headphone\+Output\+::stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stops the headphone output. 
+
+This method stops any ongoing audio playback through the headphones.
+
+This method stops the audio playback and outputs a message indicating that the headphone output has been stopped. 
+
+Implements \mbox{\hyperlink{class_audio_output_interface_a740e131c965dab034862fb5cf55f75b0}{Audio\+Output\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{_headphone_output_8h}{Headphone\+Output.\+h}}\item 
+src/model/\mbox{\hyperlink{_headphone_output_8cpp}{Headphone\+Output.\+cpp}}\end{DoxyCompactItemize}
