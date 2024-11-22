@@ -56,3 +56,7 @@ gcovr -r . --filter src/ --html --html-details -o reports/coverage.html
 # generate document
 
 brew install doxygen
+
+doxygen -g
+
+doxygen DoxyFile
