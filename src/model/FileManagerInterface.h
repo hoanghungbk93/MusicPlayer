@@ -1,6 +1,6 @@
 /**
  * @file FileManagerInterface.h
- * @author Hung
+ * @author HungHC
  * @brief Declaration of the FileManagerInterface class.
  * @version 0.1
  * @date 2024-11-22

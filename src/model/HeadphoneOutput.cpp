@@ -1,6 +1,6 @@
 /**
  * @file HeadphoneOutput.cpp
- * @author Hung
+ * @author HungHC
  * @brief Implementation of the HeadphoneOutput class for audio playback through headphones.
  * @version 0.1
  * @date 2024-11-22

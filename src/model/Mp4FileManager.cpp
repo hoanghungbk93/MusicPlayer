@@ -9,7 +9,7 @@
  * 
  * @contact hch.bkhn@gmail.com
  * 
- * @author Hung
+ * @author HungHC
  * @copyright Copyright (c) 2024
  */
 

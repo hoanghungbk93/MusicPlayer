@@ -1,6 +1,6 @@
 /**
  * @file MusicPlayerController.h
- * @author Hung
+ * @author HungHC
  * @brief Header file for the MusicPlayerController class.
  * @version 0.1
  * @date 2024-11-22

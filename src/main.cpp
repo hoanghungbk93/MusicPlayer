@@ -4,15 +4,38 @@
  * @version 0.1
  * @date 2024-11-22
  * 
+ * @mainpage MusicPlayer Application
+ *
+ * @section intro_sec Introduction
+ *
+ * The MusicPlayer application demonstrates file management, audio output, and unit testing using Google Test and Google Mock.
+ * It showcases how various components, such as `MusicPlayerController`, `Mp3FileManager`, and `SpeakerOutput`, work together.
+ *
+ * @section build_sec How to Build
+ *
+ * 1. Clone the repository.
+ * 2. Create a `build` directory: `mkdir build && cd build`.
+ * 3. Run CMake: `cmake ..`.
+ * 4. Build the project: `make`.
+ *
+ * @section usage_sec How to Use
+ *
+ * - Run the main program: `./MusicPlayer`
+ * - Run the unit tests: `./MusicPlayerTest`
+ *
+ * @section doc_sec Documentation
+ *
+ * The generated documentation provides an overview of the classes, methods, and tests in the MusicPlayer application.
+ * 
  * @details This file contains the main function for the Music Player application.
  * It demonstrates how to use the `MusicPlayerController` with various components 
  * like `Mp3FileManager`, `SpeakerOutput`, and `ConsoleView`.
  * 
+ * @author HungHC
  * @contact hch.bkhn@gmail.com
- * 
- * @author Hung
  * @copyright Copyright (c) 2024
  */
+
 
 #include "model/Mp3FileManager.h"
 #include "model/Mp4FileManager.h"

@@ -1,6 +1,6 @@
 /**
  * @file AudioOutputInterface.h
- * @author Hung
+ * @author HungHC
  * @brief Declaration of the AudioOutputInterface class.
  * @version 0.1
  * @date 2024-11-22

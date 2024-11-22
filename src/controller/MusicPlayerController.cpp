@@ -1,6 +1,6 @@
 /**
  * @file MusicPlayerController.cpp
- * @author Hung
+ * @author HungHC
  * @brief Implementation of the MusicPlayerController class, responsible for controlling music playback.
  * @version 0.1
  * @date 2024-11-22

@@ -8,7 +8,7 @@
  * AudioOutputInterface to provide methods for initializing, playing sound, 
  * and stopping audio output through headphones.
  * 
- * @author Hung
+ * @author HungHC
  * @contact hch.bkhn@gmail.com
  * 
  * @copyright Copyright (c) 2024
